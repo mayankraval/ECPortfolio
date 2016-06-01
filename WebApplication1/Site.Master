@@ -1,8 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="WebApplication1.Site1" %>
-
 <%@ Register Src="~/User_Controls/Navbar.ascx" TagName="navbar" TagPrefix="bs3" %>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8">
@@ -30,6 +29,9 @@
     <link rel="stylesheet" href="Content/TemplateCSS/main.css">
     <!-- responsive css -->
     <link rel="stylesheet" href="Content/TemplateCSS/responsive.css">
+
+    <!-- Projects page slider CSS Files -->
+    <link href="Content/prettyPhoto.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
         <bs3:navbar runat="server"></bs3:navbar>

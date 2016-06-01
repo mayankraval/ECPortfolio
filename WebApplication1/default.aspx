@@ -2,9 +2,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <%--<bs3:Jumbotron runat="server" ID="Jumbotron" ></bs3:Jumbotron>--%>
-    <%--<h1 class="thinner">Mayank Raval</h1>
-        <h3 class="thinner">Innovator</h3>--%>
-
+    
     <!--==================================================
         Slider Section Start
         ================================================== -->
@@ -116,7 +114,7 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">E COMMERCE</h4>
-                            <p>G-intelligence understands that many businesses today want an ecommerce component to their website in order to directly sell products to customers. We have developed deep expertise in building ecommerce websites that are robust and reliable. We create ecommerce solutions that are highly scalable, so that they can handle high speed growth of your website in a short time.</p>
+                            <p>I understands that many businesses today want an ecommerce component to their website in order to directly sell products to customers. We have developed deep expertise in building ecommerce websites that are robust and reliable. We create ecommerce solutions that are highly scalable, so that they can handle high speed growth of your website in a short time.</p>
                         </div>
                     </div>
                 </div>

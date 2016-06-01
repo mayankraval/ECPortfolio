@@ -3,26 +3,3 @@ body{
     background-image:url("../Assets/images/maya.png");
     background-size:cover;
 }
-
-h1.thinner {
-    color: #ca2536;
-    margin-left: 360px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 4em;
-    text-transform:uppercase;
-    position: relative;
-    font-weight: 100;
-    margin-top: 22.5%;
-    letter-spacing: 8px;
-} 
-h3.thinner{
-    color: #487F7D;
-    margin-left: 360px;
-    font-family: 'Poiret One', cursive;   
-    font-size: 2em;
-    font-weight: 200;
-    text-transform:uppercase;
-    position: relative;
-    margin-top: 3%;
-    letter-spacing: 7px;
-}
