@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="WebApplication1.Site1" %>
+
 <%@ Register Src="~/User_Controls/Navbar.ascx" TagName="navbar" TagPrefix="bs3" %>
 <!DOCTYPE html>
 
@@ -14,22 +15,67 @@
     <link href="Content/font-awesome.min.css" rel="stylesheet" />
     <link href="Content/app.css" rel="stylesheet" />
 
+    <!-- Template CSS Files -->
+    <!-- Ionicons Fonts Css -->
+    <link rel="stylesheet" href="Content/TemplateCSS/ionicons.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="Content/TemplateCSS/animate.css">
+    <!-- Hero area slider css-->
+    <link rel="stylesheet" href="Content/TemplateCSS/slider.css">
+    <!-- owl craousel css -->
+    <link rel="stylesheet" href="Content/TemplateCSS/owl.carousel.css">
+    <link rel="stylesheet" href="Content/TemplateCSS/owl.theme.css">
+    <link rel="stylesheet" href="Content/TemplateCSS/jquery.fancybox.css">
+    <!-- template main css file -->
+    <link rel="stylesheet" href="Content/TemplateCSS/main.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="Content/TemplateCSS/responsive.css">
+
     <asp:ContentPlaceHolder ID="head" runat="server">
+        <bs3:navbar runat="server"></bs3:navbar>
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <bs3:Navbar runat="server"></bs3:Navbar>
-    <div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    
+    <!-- Footer -->
+    <div class="navbar-fixed-bottom">
+        <div class="nav nav-justified" style="background-color: #000000">
+            <div class="navbar-text pull-left">
+                <p style="color: #ffffff">Copyright by Mayank Raval @ 2015</p>
+            </div>
 
+            <div class="navbar-text pull-right">
+                <a href="https://github.com/mayankraval" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+                <a href="https://in.linkedin.com/in/mayankraval" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                <a href="https://instagram.com/mayank.raval/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a>
+                <a href="https://twitter.com/Mayank_Raval" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+                <a href="https://www.facebook.com/mayank.raval" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+            </div>
+        </div>
+    </div>
     <!-- Javascript -->
     <script src="Scripts/jquery-2.2.3.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/app.js"></script>
+
+    <!-- Template Javascript Files
+        ================================================== -->
+    <!-- modernizr js -->
+    <script src="Scripts/vendor/modernizr-2.6.2.min.js"></script>
+    <!-- owl carouserl js -->
+    <script src="Scripts/owl.carousel.min.js"></script>
+    <!-- wow js -->
+    <script src="Scripts/wow.min.js"></script>
+    <!-- slider js -->
+    <script src="Scripts/slider.js"></script>
+    <script src="Scripts/jquery.fancybox.js"></script>
+    <!-- template main js -->
+    <script src="Scripts/main.js"></script>
+
 </body>
 </html>

@@ -60,7 +60,62 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\images\about\about-company.jpg" />
+    <Content Include="Assets\images\about\about.jpg" />
+    <Content Include="Assets\images\author\about.jpg" />
+    <Content Include="Assets\images\author\author-bg.jpg" />
+    <Content Include="Assets\images\author\author.jpg" />
+    <Content Include="Assets\images\avater-1.jpg" />
+    <Content Include="Assets\images\avater-2.jpg" />
+    <Content Include="Assets\images\avater.jpg" />
+    <Content Include="Assets\images\blog\post-1.jpg" />
+    <Content Include="Assets\images\blog\post-2.jpg" />
+    <Content Include="Assets\images\blog\post-3.jpg" />
+    <Content Include="Assets\images\clients\logo-1.jpg" />
+    <Content Include="Assets\images\clients\logo-2.jpg" />
+    <Content Include="Assets\images\clients\logo-3.jpg" />
+    <Content Include="Assets\images\clients\logo-4.jpg" />
+    <Content Include="Assets\images\clients\logo-5.jpg" />
+    <Content Include="Assets\images\icons\close.png" />
+    <Content Include="Assets\images\icons\i_next.png" />
+    <Content Include="Assets\images\icons\i_prev.png" />
+    <Content Include="Assets\images\icons\left.png" />
+    <Content Include="Assets\images\icons\map-marker.png" />
+    <Content Include="Assets\images\icons\next.png" />
+    <Content Include="Assets\images\icons\prev.png" />
+    <Content Include="Assets\images\icons\quotes.png" />
+    <Content Include="Assets\images\icons\right.png" />
+    <Content Include="Assets\images\logo.png" />
+    <Content Include="Assets\images\maya.png" />
+    <Content Include="Assets\images\portfolio\item-1.jpg" />
+    <Content Include="Assets\images\portfolio\item-2.jpg" />
+    <Content Include="Assets\images\portfolio\item-3.jpg" />
+    <Content Include="Assets\images\portfolio\item-4.jpg" />
+    <Content Include="Assets\images\portfolio\item-5.jpg" />
+    <Content Include="Assets\images\portfolio\item-6.jpg" />
+    <Content Include="Assets\images\portfolio\post-1.jpg" />
+    <Content Include="Assets\images\slider.jpg" />
+    <Content Include="Assets\images\team.jpg" />
+    <Content Include="Assets\images\team\team-1.jpg" />
+    <Content Include="Assets\images\team\team-2.jpg" />
+    <Content Include="Assets\images\team\team-3.jpg" />
+    <Content Include="Assets\images\team\team-4.jpg" />
+    <Content Include="Content\TemplateCSS\animate.css" />
+    <Content Include="Content\TemplateCSS\ionicons.min.css" />
+    <Content Include="Content\TemplateCSS\jquery.fancybox.css" />
+    <Content Include="Content\TemplateCSS\main.css" />
+    <Content Include="Content\TemplateCSS\owl.carousel.css" />
+    <Content Include="Content\TemplateCSS\owl.theme.css" />
+    <Content Include="Content\TemplateCSS\responsive.css" />
+    <Content Include="Content\TemplateCSS\slider.css" />
+    <Content Include="fonts\ionicons.svg" />
     <Content Include="Projects.aspx" />
+    <Content Include="Scripts\jquery.fancybox.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\slider.js" />
+    <Content Include="Scripts\vendor\modernizr-2.6.2.min.js" />
+    <Content Include="Scripts\wow.min.js" />
     <Content Include="Services.aspx" />
     <Content Include="Aboutme.aspx" />
     <Content Include="Contact.aspx" />
@@ -73,6 +128,11 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\ionicons.eot" />
+    <Content Include="fonts\ionicons.ttf" />
+    <Content Include="fonts\ionicons.woff" />
+    <Content Include="Content\TemplateCSS\less\main.less" />
+    <Content Include="Content\TemplateCSS\less\responsive.less" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
@@ -183,9 +243,7 @@
       <DependentUpon>Contactme.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
