@@ -60,22 +60,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\images\about\about-company.jpg" />
-    <Content Include="Assets\images\about\about.jpg" />
-    <Content Include="Assets\images\author\about.jpg" />
-    <Content Include="Assets\images\author\author-bg.jpg" />
-    <Content Include="Assets\images\author\author.jpg" />
-    <Content Include="Assets\images\avater-1.jpg" />
-    <Content Include="Assets\images\avater-2.jpg" />
-    <Content Include="Assets\images\avater.jpg" />
-    <Content Include="Assets\images\blog\post-1.jpg" />
-    <Content Include="Assets\images\blog\post-2.jpg" />
-    <Content Include="Assets\images\blog\post-3.jpg" />
-    <Content Include="Assets\images\clients\logo-1.jpg" />
-    <Content Include="Assets\images\clients\logo-2.jpg" />
-    <Content Include="Assets\images\clients\logo-3.jpg" />
-    <Content Include="Assets\images\clients\logo-4.jpg" />
-    <Content Include="Assets\images\clients\logo-5.jpg" />
     <Content Include="Assets\images\icons\close.png" />
     <Content Include="Assets\images\icons\i_next.png" />
     <Content Include="Assets\images\icons\i_prev.png" />
@@ -85,21 +69,19 @@
     <Content Include="Assets\images\icons\prev.png" />
     <Content Include="Assets\images\icons\quotes.png" />
     <Content Include="Assets\images\icons\right.png" />
-    <Content Include="Assets\images\logo.png" />
     <Content Include="Assets\images\maya.png" />
-    <Content Include="Assets\images\portfolio\item-1.jpg" />
-    <Content Include="Assets\images\portfolio\item-2.jpg" />
-    <Content Include="Assets\images\portfolio\item-3.jpg" />
-    <Content Include="Assets\images\portfolio\item-4.jpg" />
-    <Content Include="Assets\images\portfolio\item-5.jpg" />
-    <Content Include="Assets\images\portfolio\item-6.jpg" />
-    <Content Include="Assets\images\portfolio\post-1.jpg" />
-    <Content Include="Assets\images\slider.jpg" />
-    <Content Include="Assets\images\team.jpg" />
-    <Content Include="Assets\images\team\team-1.jpg" />
-    <Content Include="Assets\images\team\team-2.jpg" />
-    <Content Include="Assets\images\team\team-3.jpg" />
-    <Content Include="Assets\images\team\team-4.jpg" />
+    <Content Include="Assets\images\portfolio\apmhall.png" />
+    <Content Include="Assets\images\portfolio\apmlib.png" />
+    <Content Include="Assets\images\portfolio\apmweb.png" />
+    <Content Include="Assets\images\portfolio\choco.png" />
+    <Content Include="Assets\images\portfolio\chococard.jpg" />
+    <Content Include="Assets\images\portfolio\chocologo.png" />
+    <Content Include="Assets\images\portfolio\msulib.png" />
+    <Content Include="Assets\images\portfolio\netbrain.png" />
+    <Content Include="Assets\images\portfolio\ravalyogi.png" />
+    <Content Include="Assets\images\portfolio\rinku.png" />
+    <Content Include="Assets\images\portfolio\rinkucard.jpg" />
+    <Content Include="Assets\images\portfolio\rinkulogo.gif" />
     <Content Include="Content\prettyPhoto.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\TemplateCSS\animate.css" />
@@ -245,7 +227,9 @@
       <DependentUpon>Contactme.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\images\team\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
