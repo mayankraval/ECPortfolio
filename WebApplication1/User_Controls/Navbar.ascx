@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="Default.aspx">
-                <i class="fa fa-fort-awesome fa-lg"></i> ASP.NET EC Lab2</a>
+                <i class="fa fa-briefcase fa-lg"></i> Mayank Raval</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

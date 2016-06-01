@@ -80,6 +80,7 @@
     <Content Include="Site.Master" />
     <Content Include="packages.config" />
     <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <Content Include="SiteContact.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SiteContact.Master.cs">
+      <DependentUpon>SiteContact.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteContact.Master.designer.cs">
+      <DependentUpon>SiteContact.Master</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\Jumbotron.ascx.cs">
       <DependentUpon>Jumbotron.ascx</DependentUpon>
