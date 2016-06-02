@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Joshua.Models.SecurityUser>
+@{
+  ViewBag.Title = "Users";
+  Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+  <h1>Users</h1>
+  <p>
+
+    <a href="javascript:NewUser()" class="btn btn-success btn-large">
+      <i class="icon-plus icon-white"></i>
+    </a>
+  </p>
+
+  @if (Model != null)
+  {
+    <table class="table table-stripped table-hover">
+      <tr>
+        <th>
+          @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+          @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th style="width: 10%;"></th>
+      </tr>
+      @if (Model != null)
+      {
+        foreach (var item in Model)
+        {
+        <tr class="itemid-@item._Id">
+          <td class="item_name">
+            @Html.DisplayFor(modelItem => item.UserName)
+          </td>
+          <td class="item_description">
+            @Html.DisplayFor(modelItem => item.Email)
+          </td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-warning" onclick="javascript:navigate('/Admin/Users/Edit/@item._Id')"><i class="icon-pencil "></i></button>
+              <button class="btn btn-danger" onclick="javascript:deleteItem('@item._Id')"><i class="icon-trash icon-white"></i></button>
+            </div>
+          </td>
+        </tr>
+        }
+      }
+
+    </table>
+  }
+</div>
+
+<div>
+  <style>
+    .modal-body {
+      max-height:500px;
+    }
+  </style>
+  @{
+    ViewBag.RedirectTo = "/Admin/Users/Index";
+    }
+  @Html.Part_Modal("inlinecreatedialog",
+                 content: Html.Partial("~/Areas/Admin/Views/Users/Register.cshtml", new Joshua.ViewModels.RegisterViewModel(), this.ViewData),
+                 width: 500, showheader: false, header: "new user")
+</div>
+
+@section scripts
+{
+  @Scripts.Render("~/bundles/jqueryval")
+  <script type="text/javascript">
+
+    function NewUser() {
+      $("#inlinecreatedialog").modal({ keyboard: false });
+    }
+
+    function edit(itemid) {
+      var row = $(".itemid-" + itemid);
+      $("#Name").val(row.find(".item_name").html().trim());
+      $("#Description").val(row.find(".item_description").html().trim());
+      $("#_Id").val(itemid);
+
+      $("#inlinecreatedialog").modal({ keyboard: false });
+    }
+
+    function deleteItem(itemid) {
+      ShowModal("Warning", "the selected user will be deleted", function () {
+        $.get("@Url.Content("~/Admin/Users/Delete")/" + itemid, null, function (data) {
+          if (Boolean(data)) {
+            $(".itemid-" + itemid).remove();
+            ShowAlert("The user has been deleted ");
+          }
+          else {
+            ShowAlert(data);
+          }
+        });
+      });
+    }
+  </script>
+}

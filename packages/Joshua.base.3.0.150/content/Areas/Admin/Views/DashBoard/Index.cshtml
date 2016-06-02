@@ -1,0 +1,63 @@
+﻿@model IEnumerable<string>
+@{
+  ViewBag.Title = "Index";
+  Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+  <p>
+    <h2>Administration Dashboard Index
+    </h2>
+    <h4>(Here you can edit administration dashboard contents)</h4>
+  </p>
+  <a class="btn btn-large btn-primary" href="/admin/dashboard/create">
+    <i class="icon-plus icon-white"></i>&nbsp; Add new content
+  </a>
+  <p></p>
+  <table class="table table-stripped table-hover">
+    <tr>
+      <th>Content name
+      </th>
+      <th style="width: 10%;"></th>
+    </tr>
+    @if (Model != null)
+    {
+      foreach (var item in Model)
+      {
+      <tr class="itemid-@item.Replace(" ", "_")">
+        <td>
+          @item
+        </td>
+        <td>
+          <div class="btn-group">
+            <button class="btn btn-warning" onclick="javascript:navigate('/Admin/Dashboard/Edit/@(item.Replace(" ", "_"))')"><i class="icon-pencil "></i></button>
+            <button class="btn btn-danger" onclick="javascript:deleteItem('@item.Replace(" ", "_")')"><i class="icon-trash icon-white"></i></button>
+          </div>
+        </td>
+      </tr>
+      }
+    }
+
+  </table>
+
+</div>
+
+@section scripts
+{
+  <script type="text/javascript">
+    function deleteItem(controller, itemid) {
+      ShowModal("Warning", "the selected content will be deleted", function () {
+        $.get("/Admin/Dashboard/Delete/" + itemid, null, function (data) {
+          if (Boolean(data)) {
+            $(".itemid-" + itemid).remove();
+            ShowAlert("The content has been deleted ");
+          }
+          else {
+            ShowAlert(data);
+          }
+        });
+      });
+    }
+  </script>
+}
+

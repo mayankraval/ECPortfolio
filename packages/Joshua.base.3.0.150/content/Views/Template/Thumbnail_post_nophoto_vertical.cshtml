@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Joshua.Models.Content>
+@{
+  var columns = 3; // from 1 to 5
+  var spansize = 12 / columns;
+}
+@if (Model != null)
+{
+  var groupitems = (int)Math.Ceiling((double)Model.Count() / columns);
+  for (int c = 0; c < columns; c++)
+  {
+  <div class="span@(spansize)">
+    @for (int i = 0; i < Math.Min(Model.Count(), groupitems * c); i++)
+    {
+      var item = Model.ElementAt(i);
+      <div class="thumbnail-box">
+        <a href="@item.Path">
+          <h2>@item.Title</h2>
+        </a>
+        @MvcHtmlString.Create(item.Abstract)
+      </div>
+    }
+  </div>
+  }
+}
+
+
+

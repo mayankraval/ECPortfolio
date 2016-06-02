@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Joshua.Models.Container>
+@{
+  Layout = null;
+}
+@if (Model != null)
+{
+  foreach (var item in Model)
+  { 
+  @Html.Partial("_Index_Row", item)
+  }
+}

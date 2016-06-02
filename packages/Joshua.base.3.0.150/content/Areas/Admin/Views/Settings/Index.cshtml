@@ -1,0 +1,108 @@
+﻿@{
+  ViewBag.Title = "Settings";
+  Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+  var pluginsettings = new Dictionary<string, MvcHtmlString>();
+
+  foreach (var pl in J.Plugins.GetAdminRenderers(Joshua.Helpers.PageOperationEnum.Settings, J.Plugins.Plugins.Keys.ToArray()))
+  {
+    var val = pl.Value(this.Html, null, Joshua.Helpers.PageOperationEnum.Settings);
+    if (val != MvcHtmlString.Empty)
+    {
+      pluginsettings.Add(pl.Key, val);
+    }
+  }
+
+  var enabletemplatesettings = System.IO.File.Exists(Server.MapPath("~/Views/Template/Settings.cshtml"));
+}
+<style>
+  .affix-content {
+    padding-top: 50px;
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <h3>Joshua Settings</h3>
+    <div class="span12">
+      <form id="settingsform" class="form-horizontal" action="/admin/settings/save" method="post">
+        <button type="submit" class="btn btn-large btn-primary pull-right">
+          <i class="icon-ok icon-white"></i>&nbsp;Save Changes
+        </button>
+        <div style="clear:both" />
+        <ul class="nav nav-tabs" id="myTab">
+          <li class="active"><a href="#basesettings" data-toggle="tab">Base Settings</a></li>
+          <li><a href="#base_admin" data-toggle="tab">Administration Settings</a></li>
+          <li><a href="#googlesettings" data-toggle="tab">Google Settings</a></li>
+          <li><a href="#facebooksettings" data-toggle="tab">Facebook Settings</a></li>
+          @if (enabletemplatesettings)
+          {
+            <li><a href="#templatesettings" data-toggle="tab">Template Settings</a></li>
+          }
+          @foreach (var plkey in pluginsettings)
+          {
+            <li><a href="#@(plkey.Key.Replace(" ", "_"))" data-toggle="tab">@(plkey.Key) Settings</a></li>
+          }
+        </ul>
+
+        <div class="tab-content">
+          <div class="tab-pane active" id="basesettings">
+            @Html.Partial("Joshua_Settings_base")
+          </div>
+          <div class="tab-pane" id="base_admin">
+            @Html.Partial("Joshua_Settings_base2")
+          </div>
+          <div class="tab-pane" id="googlesettings">
+            @Html.Partial("Joshua_google_apis")
+          </div>
+          <div class="tab-pane" id="facebooksettings">
+            @Html.Partial("Joshua_facebook_apis")
+          </div>
+          @if (enabletemplatesettings)
+          {
+            <div class="tab-pane" id="templatesettings">
+              @Html.Partial("~/views/template/settings.cshtml")
+            </div>
+          }
+          @foreach (var plkey in pluginsettings)
+          {
+            <div class="tab-pane" id="@(plkey.Key.Replace(" ", "_"))">
+              @plkey.Value
+            </div>
+          }
+        </div>
+
+
+      </form>
+
+      <br />
+      <br />
+      <br />
+    </div>
+  </div>
+</div>
+
+
+@section Scripts
+{
+  <script type="text/javascript">
+    $(function () {
+
+      $('#navbar').affix();
+
+      $(document).on("change", 'input:checkbox', null, function () {
+        var relativeid = $(this).attr("for");
+        $('#' + relativeid).val($(this).attr("checked") == "checked" ? "true" : "false");
+      });
+
+      $("#settingsform").submit(function (e) {
+        index = 0;
+        $('[name="setting-key"]').each(function () { $(this).attr("name", "setting_key[" + index++ + "]"); });
+
+        index = 0;
+        $('[name="setting-value"]').each(function () { $(this).attr("name", "setting_value[" + index++ + "]"); });
+      });
+    });
+
+  </script>
+}

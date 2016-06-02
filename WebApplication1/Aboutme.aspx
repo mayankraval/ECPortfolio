@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="About Me" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Aboutme.aspx.cs" Inherits="WebApplication1.Contact" %>
 
+<%-- 
+    File : Aboutme.aspx
+    Author : Mayank Raval
+    Web Site : http://ecportfolio.azurewebsites.net/
+    Description : About me page which uses Site.Master as master page and added basic information about me --%>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container">
         <h1>My Parents named me MAYANK..</h1>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Joshua.Models.ContentType>
+@{
+  ViewBag.Title = "Content Type";
+  Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+  <h1>Content Type </h1>
+  <p>
+
+    <a href="javascript:newContentType()" class="btn btn-success btn-large">
+      <i class="icon-plus icon-white"></i>
+    </a>
+  </p>
+
+  @if (Model != null)
+  {
+    <ul class="nav nav-tabs nav-stacked">
+      @foreach (var item in Model)
+      { 
+        @Html.Partial("_Index_Row", item)
+      }
+    </ul>
+  }
+</div>
+
+
+@Html.Part_Modal("inlinecreatedialog",
+                 content: Html.Partial("_Inline_Create", new Joshua.Models.ContentType()),
+                 width: 400, showheader: true, header: "new content type")
+
+@section scripts
+{
+  @Scripts.Render("~/bundles/jqueryval")
+  <script type="text/javascript">
+
+    function newContentType() {
+      $("#inlinecreatedialog").modal({ keyboard: false });
+    }
+
+    function deleteItem(itemid) {
+      ShowModal("Warning", "the selected content type will be deleted", function () {
+        $.get("@Url.Content("~/Admin/ContentType/Delete")/" + itemid, null, function (data) {
+          if (Boolean(data)) {
+            $("#item_" + itemid).remove();
+            ShowAlert("The content type has been deleted ");
+          }
+          else {
+            ShowAlert(data);
+          }
+        });
+      });
+    }
+  </script>
+}

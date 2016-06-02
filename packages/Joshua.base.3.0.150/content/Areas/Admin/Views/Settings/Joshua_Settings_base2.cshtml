@@ -1,0 +1,84 @@
+﻿<div class="tab-pane" id="base_admin">
+
+  <div class="control-group">
+    <label class="control-label"></label>
+    <div class="controls">
+      <input type="hidden" name="setting-key" value="joshua:admin:returnurl" />
+      <input type="hidden" id="useareturnurl-check" name="setting-value" value="@J.Settings["joshua:admin:returnurl"]" />
+      <label class="checkbox">
+        <input type="checkbox" for="useareturnurl-check" @(J.Settings["joshua:admin:returnurl"] == "true" ? "checked" : "") />
+        Use Return Url when editing contents
+      </label>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label"></label>
+    <div class="controls">
+      <input type="hidden" name="setting-key" value="joshua:admin:showcontentname" />
+      <input type="hidden" id="showcontentname-check" name="setting-value" value="@J.Settings["joshua:admin:showcontentname"]" />
+      <label class="checkbox">
+        <input type="checkbox" for="showcontentname-check" @(J.Settings["joshua:admin:showcontentname"] == "true" ? "checked" : "") />
+        Show content name during editing
+      </label>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label"></label>
+    <div class="controls">
+      <input type="hidden" name="setting-key" value="joshua:admin:showcontentpath" />
+      <input type="hidden" id="showcontentpath-check" name="setting-value" value="@J.Settings["joshua:admin:showcontentpath"]" />
+      <label class="checkbox">
+        <input type="checkbox" for="showcontentpath-check" @(J.Settings["joshua:admin:showcontentpath"] == "true" ? "checked" : "") />
+        Show content path during editing
+      </label>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label"></label>
+    <div class="controls">
+      <input type="hidden" name="setting-key" value="joshua:admin:useorderindexsorting" />
+      <input type="hidden" id="useorderindexsorting-check" name="setting-value" value="@J.Settings["joshua:admin:useorderindexsorting"]" />
+      <label class="checkbox">
+        <input type="checkbox" for="useorderindexsorting-check" @(J.Settings["joshua:admin:useorderindexsorting"] == "true" ? "checked" : "") />
+        Use Order Index sorting field to organize contents.
+      </label>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">Active Languages (comma separated)</label>
+    <div class="controls">
+      <input type="hidden" name="setting-key" value="joshua:activelanguages" />
+      <input type="text" name="setting-value" placeholder="languages" style="width: 80%;" value="@J.Settings["joshua:activelanguages"]"/>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">Uploaded photo max width</label>
+    <div class="controls">
+      <input type="hidden" name="setting-key" value="joshua:photo:maxwidth" />
+      <input type="text" name="setting-value" placeholder="" style="width: 80%;" value="@J.Settings["joshua:photo:maxwidth"]"/>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label">Uploaded photo max height</label>
+    <div class="controls">
+      <input type="hidden" name="setting-key" value="joshua:photo:maxheight" />
+      <input type="text" name="setting-value" placeholder="" style="width: 80%;" value="@J.Settings["joshua:photo:maxheight"]"/>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="control-group">
+    <label class="control-label">Content Editing Style Sheet</label>
+    <div class="controls">
+      <input type="hidden" name="setting-key" value="joshua:fontformattingcss" />
+      <input type="text" name="setting-value" placeholder="" style="width: 80%;" value="@J.Settings["joshua:fontformattingcss"]"/>
+    </div>
+  </div>
+</div>

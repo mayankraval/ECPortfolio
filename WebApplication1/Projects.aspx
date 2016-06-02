@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="Projects" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Projects.aspx.cs" Inherits="WebApplication1.Contact" %>
 
+<%-- 
+    File : Projects.aspx
+    Author : Mayank Raval
+    Web Site : http://ecportfolio.azurewebsites.net/
+    Description : Projects page which uses Site.Master as master page and list all the projects done by me including freelance projects --%>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="portfolio portfolio-page container">
         <div class="row">

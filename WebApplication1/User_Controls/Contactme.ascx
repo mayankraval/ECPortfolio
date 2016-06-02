@@ -1,4 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Contactme.ascx.cs" Inherits="WebApplication1.User_Controls.WebUserControl1" %>
+
+<%-- 
+    File : Contactme.aspx
+    Author : Mayank Raval
+    Web Site : http://ecportfolio.azurewebsites.net/
+    Description : provides user control of contact me page; by including bs4:contactme tag on any page to include this control into your page --%>
+
 <div class="container">
         <div class="row">
             <div class="col-md-offset-4 col-md-8">

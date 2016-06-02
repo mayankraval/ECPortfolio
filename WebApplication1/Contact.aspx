@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/SiteContact.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="WebApplication1.Contact" %>
 
+<%-- 
+    File : Contact.aspx
+    Author : Mayank Raval
+    Web Site : http://ecportfolio.azurewebsites.net/
+    Description : Contact page which uses SiteContact.Master as master page and added provides google maps location and contact us form --%>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <%--<bs4:Contactme runat="server" ID="Contactme" ></bs4:Contactme>--%>
     
@@ -77,7 +83,7 @@
                         <h2 class="title wow fadeInDown" data-wow-delay=".3s" data-wow-duration="500ms">
                         INTERESTED IN WORKING TOGETHER? ?</h2>
                             <p class="wow fadeInDown" data-wow-delay=".5s" data-wow-duration="500ms"></p>
-                        <a href="contact.html" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Contact With Me</a>
+                        <a href="Contact.aspx" class="btn btn-default btn-contact wow fadeInDown" data-wow-delay=".7s" data-wow-duration="500ms">Contact With Me</a>
                     </div>
                 </div>
 

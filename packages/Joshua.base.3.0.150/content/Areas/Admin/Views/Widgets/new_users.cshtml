@@ -1,0 +1,26 @@
+﻿@using Joshua.Models
+@{
+  var newusers = J.Data.Get<SecurityUser>(doc => doc.RegistrationDate != null &&
+                                                 doc.RegistrationDate > DateTime.Now.AddMonths(-1)).Count();
+  var users = J.Data.Get<SecurityUser>().Count();
+}
+<div class="span3" style="text-align: center">
+  <div class="circleStatsItem green">
+    <i class="fa-icon-user"></i>
+    <input type="text" value="@newusers" class="newusers" />
+  </div>
+  <div class="box-small-title">New Users this month</div>
+</div>
+
+<script type="text/javascript">
+  $(function () {
+    $(".newusers").knob({
+      'min': 0,
+      'max': @(users),
+      'readOnly': true,
+      'width': 120,
+      'height': 120,
+      'fgColor': '#78CD51'
+    })
+  });
+</script>

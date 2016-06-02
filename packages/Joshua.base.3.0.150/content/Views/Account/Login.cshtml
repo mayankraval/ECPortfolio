@@ -1,0 +1,9 @@
+﻿@{
+  Layout = "~/Areas/Admin/Views/Shared/_jbase_Layout.cshtml";
+  if (ViewBag.isPartial != null && ViewBag.isPartial)
+  {
+    Layout = null;
+  }
+}
+@Html.Partial("LoginDialog", this.ViewData)
+

@@ -1,0 +1,19 @@
+﻿@model Joshua.Models.ContentType
+@{
+  if (ViewBag.isPartial != null && ViewBag.isPartial)
+  {
+    Layout = null;
+  }
+}
+<li id="item_@Model._Id">
+  <a href="#">@Model.Name - @Model.FriendlyName
+    <div style="float: right; margin-top: -5px;">
+      <div class="btn-group">
+        <button class="btn btn-warning" onclick="javascript:navigate('/Admin/ContentType/Edit/@(Model._Id)')"><i class="icon-pencil "></i></button>
+        <button class="btn btn-danger" onclick="javascript:deleteItem('@Model._Id')"><i class="icon-trash icon-white"></i></button>
+      </div>
+    </div>
+  </a>
+</li>
+
+

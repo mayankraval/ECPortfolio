@@ -1,0 +1,43 @@
+﻿@model Joshua.ViewModels.RegisterViewModel
+@{
+  ViewBag.Title = "Register";
+}
+
+@using (Html.BeginForm("Register", "Users", new { area = "Admin", redirectto = ViewBag.RedirectTo }, FormMethod.Post, new { @class = "form-signin", style = "max-width: 500px", id = "registerform" }))
+{
+  <hgroup class="title">
+    <h2>Create a new account.</h2>
+  </hgroup>
+  @Html.AntiForgeryToken()
+  @Html.ValidationSummary()
+
+  <fieldset>
+    <hr />
+    <ol>
+      <li style="margin-bottom: 10px;">
+        @Html.LabelFor(m => m.UserName)
+        @Html.TextBoxFor(m => m.UserName, new { style = "width:80%;" })<br />
+        @Html.ValidationMessageFor(m => m.UserName)
+      </li>
+      <li style="margin-bottom: 10px;">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { style = "width:80%;" })<br />
+        @Html.ValidationMessageFor(m => m.Email)
+      </li>
+      <li style="margin-bottom: 10px;">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password)<br />
+        @Html.ValidationMessageFor(m => m.Password)
+      </li>
+      <li style="margin-bottom: 10px;">
+        @Html.LabelFor(m => m.ConfirmPassword)
+        @Html.PasswordFor(m => m.ConfirmPassword)<br />
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+      </li>
+    </ol>
+    <button value="Register" class="btn btn-large btn-primary pull-right" onclick="javascript:$('#registerform').submit()">
+      <i class="icon-ok icon-white"></i>&nbsp;Ok
+    </button>
+  </fieldset>
+
+}

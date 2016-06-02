@@ -1,0 +1,78 @@
+﻿@using Joshua.Models
+@model Joshua.Models.SecurityUser
+@{
+  ViewBag.Title = "Edit user";
+  Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+  var currentroles = Model.Roles;
+  if (currentroles == null) { currentroles = new List<string>(); }
+}
+
+<h2 class="controls">Edit User</h2>
+
+
+@using (Html.BeginForm("Save", "Users", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal", id = "create_new_content_form" }))
+{
+  <div class="span9">
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model._Id)
+    @Html.HiddenFor(model => model.UserName)
+
+    <fieldset>
+      <legend></legend>
+      <style>
+        .control-label, .controls {
+          text-align: left;
+        }
+      </style>
+
+      <div class="control-group">
+        @Html.LabelFor(model => model.UserName, new { @class = "control-label" })
+        <div class="controls">
+          @Html.DisplayFor(model => model.UserName)
+        </div>
+      </div>
+
+      <div class="control-group">
+        @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+
+        <div class="controls">
+          @Html.TextBoxFor(model => model.Email, new { style = "width:50%;" })
+          @Html.ValidationMessageFor(model => model.Email)
+        </div>
+      </div>
+
+      <div class="control-group">
+        @Html.LabelFor(model => model.Roles, new { @class = "control-label" })
+
+        <div class="controls">
+          @foreach (var roles in J.Data.Get<SecurityRole>())
+          { 
+            <label class="checkbox">
+              <input type="checkbox" name="Roles" value="@roles.Name" @(currentroles.Contains(roles.Name) ? "checked" : "")>
+              @roles.Description
+            </label>
+          }
+        </div>
+      </div>
+
+    </fieldset>
+  </div>
+  
+  <div class="span3">
+    <div class="btn-group" style="margin-top: 10px;">
+      <button class="btn btn-primary btn-large" onclick="javascript:$('#create_new_content_form').submit()"><i class="icon-ok icon-white"></i>&nbsp;Save</button>
+      <a href="/Admin/Content/Index/" class="btn btn-large"><i class="icon-arrow-left"></i>&nbsp;Cancel</a>
+    </div>
+  </div>
+}
+
+@section Scripts {
+  @Scripts.Render("~/bundles/jqueryval")
+  <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(window).load(function () {
+      $(".ckeditor").ckeditor();
+    });
+  </script>
+}

@@ -1,0 +1,28 @@
+﻿@model Joshua.Models.SecurityRole
+<form id="new_role_form" class="form-horizontal" action="/Admin/Roles/Save" method="post">
+  @Html.HiddenFor(model => model._Id, new { Id = "_Id" })
+  <style>
+    .editarea {
+      margin-bottom: 10px;
+    }
+  </style>
+  <div class="editarea">
+    @Html.LabelFor(model => model.Name)
+    <div>
+      @Html.TextBoxFor(model => model.Name)
+      @Html.ValidationMessageFor(model => model.Name)
+    </div>
+  </div>
+
+  <div class="editarea">
+    @Html.LabelFor(model => model.Description)
+
+    <div>
+      @Html.TextBoxFor(model => model.Description, new { style = "width: 80%;" })
+    </div>
+  </div>
+  <div class="btn-group controls pull-right" style="margin: 10px;">
+    <button class="btn btn-primary" onclick="javascript:$('#new_role_form').submit()"><i class="icon-ok icon-white"></i>Save</button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-trash "></i>Cancel</button>
+  </div>
+</form>

@@ -1,4 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Navbar.ascx.cs" Inherits="WebApplication1.WebUserControl1" %>
+
+<%-- 
+    File : Navbar.aspx
+    Author : Mayank Raval
+    Web Site : http://ecportfolio.azurewebsites.net/
+    Description : Provides the common navigation bar as user control all the pages to just include in master page or individual page according to your need --%>
+
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->

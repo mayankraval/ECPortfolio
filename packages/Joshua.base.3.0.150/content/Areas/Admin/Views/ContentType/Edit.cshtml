@@ -1,0 +1,91 @@
+﻿@model Joshua.Models.ContentType
+@{
+  ViewBag.Title = "Edit content type";
+  Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit this content type</h2>
+
+@using (Html.BeginForm("Save", "ContentType", new { id = Model._Id, area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+{
+  @Html.HiddenFor(model => model._Id)
+  @Html.HiddenFor(model => model.Name)
+  @Html.ValidationSummary(true)
+
+  <fieldset>
+    <legend></legend>
+    <style>
+      .control-label, .controls {
+        text-align: left;
+      }
+    </style>
+
+    <div class="control-group">
+      @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+
+      <div class="controls">
+        @Html.DisplayFor(model => model.Name, new { style = "width:80%;" })
+      </div>
+    </div>
+
+    <div class="control-group">
+      @Html.LabelFor(model => model.FriendlyName, new { @class = "control-label" })
+      <div class="controls">
+        @Html.TextBoxFor(model => model.FriendlyName, new { style = "width:80%;" })
+        @Html.ValidationMessageFor(model => model.FriendlyName)
+      </div>
+    </div>
+
+    <div class="control-group">
+      @Html.LabelFor(model => model.DefaultAdministrationTab, new { @class = "control-label" })
+      <div class="controls">
+        <select name="DefaultAdministrationTab">
+          <option value="" @(MvcHtmlString.Create(Model == null || string.IsNullOrEmpty(Model.DefaultAdministrationTab) ? "selected=\"selected\"" : ""))>Default</option>
+          @foreach (var p in J.Plugins.Plugins.Keys)
+          { 
+            <option value="@p" @MvcHtmlString.Create(Model != null && Model.DefaultAdministrationTab == p ? "selected=\"selected\"" : "")>@p</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <style>
+        ul {
+          list-style-type: none;
+        }
+
+        li {
+          list-style-type: none;
+        }
+      </style>
+      @Html.LabelFor(model => model.Plugins)
+      <div class="controls">
+        <ul>
+          @foreach (var item in J.Plugins.Plugins)
+          {
+            <li>
+              <label class="checkbox">
+                <input name="Plugins" type="checkbox" value="@item.Key" @MvcHtmlString.Create(Model.Plugins.Contains(item.Key) ? "checked=\"checked\"" : "") />
+                @item.Key
+              </label>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="control-group">
+      <div class="btn-group controls">
+        <input type="submit" class="btn btn-success btn-large" value="Salva" />
+        @Html.ActionLink("Annulla", "Index", null, new { @class = "btn btn-large btn-warning" })
+      </div>
+    </div>
+
+  </fieldset>
+}
+
+@section Scripts {
+  @Scripts.Render("~/bundles/jqueryval")
+}

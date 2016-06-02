@@ -1,6 +1,12 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="WebApplication1.Site1" %>
 <%@ Register Src="~/User_Controls/Navbar.ascx" TagName="navbar" TagPrefix="bs3" %>
 
+<%-- 
+    File : Site.Master
+    Author : Mayank Raval
+    Web Site : http://ecportfolio.azurewebsites.net/
+    Description : Provides master layout for default(Home), Aboutme, Projects and Services pages --%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">

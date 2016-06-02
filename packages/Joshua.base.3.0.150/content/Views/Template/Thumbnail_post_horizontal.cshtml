@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Joshua.Models.Content>
+@{
+  var thumbsize = 3; // from 1 to 12. 
+}
+@if (Model != null)
+{
+  foreach (var i in Model)
+  { 
+  <div class="span@(thumbsize) thumbnail-box">
+    @if (!string.IsNullOrEmpty(i.ImageUri))
+    {
+      <header>
+        <img src ="@i.GetImageUri()" />
+      </header>
+    }
+    <a href="@i.Path">
+      <h3>@i.Title</h3>
+    </a>
+    @MvcHtmlString.Create(i.Abstract)
+  </div>
+  }
+}
+
+
+

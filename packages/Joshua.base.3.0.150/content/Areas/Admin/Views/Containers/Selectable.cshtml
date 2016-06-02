@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Joshua.Models.Container>
+@{
+  Layout = null;
+  string[] selected = ViewBag.Selected ?? new string[0];
+}
+@if (Model != null)
+{
+  <div>
+    <style>
+      ul {
+        list-style-type: none;
+      }
+
+      li {
+        list-style-type: none;
+      }
+    </style>
+    <ul>
+      @foreach (var item in Model)
+      {
+        <li>
+          <label class="checkbox">
+            <input name="Containers" type="checkbox" value="@item.Name" checked="@(selected.Contains(item.Name) ? "checked" : "")" />
+            @item.Description
+          </label>
+          @Html.Action("SubContainer", "Containers", new { area = "Admin", id = item._Id, viewname = "Selectable", selected = selected })
+        </li>
+      }
+    </ul>
+  </div>
+}
+

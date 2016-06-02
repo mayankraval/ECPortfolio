@@ -1,0 +1,28 @@
+﻿@{
+  var pages = ViewBag.Pages;
+  var currentpage = ViewBag.CurrentPage;
+  var linktemplate = ViewBag.LinkTemplate;
+
+  var firstpage = currentpage - 5;
+  var lastpage = currentpage + 5;
+  if (firstpage < 0)
+  {
+    lastpage -= firstpage;
+    firstpage = 0;
+  }
+  currentpage = Math.Max(currentpage, 0);
+  lastpage = Math.Min(lastpage, pages - 1);
+}
+
+<div class="pagination">
+  <ul>
+    <li class="@(currentpage <= 0 ? "disabled" : "")"><a href="@MvcHtmlString.Create(currentpage <= 0 ? "#" : string.Format(linktemplate, currentpage - 1))">
+      <i class="icon-arrow-left"></i></a></li>
+    @for (int x = firstpage; x <= lastpage; x++)
+    {
+      <li class="@(x == currentpage ? "disabled" : "")"><a  href="@MvcHtmlString.Create(x == currentpage ? "#" : string.Format(linktemplate, x))">@(x + 1)</a></li>  
+    }
+    <li class="@(currentpage >= lastpage ? "disabled" : "")"><a href="@MvcHtmlString.Create(currentpage >= lastpage ? "#" : string.Format(linktemplate, currentpage + 1))">
+      <i class="icon-arrow-right"></i></a></li>
+  </ul>
+</div>

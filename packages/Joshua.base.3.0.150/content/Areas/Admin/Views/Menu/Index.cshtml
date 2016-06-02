@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Joshua.Models.Menu>
+@{
+  ViewBag.Title = "Menu";
+  Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+  <h1>Menu </h1>
+  <p>
+
+    <a href="javascript:newMenu()" class="btn btn-success btn-large">
+      <i class="icon-plus icon-white"></i>
+    </a>
+  </p>
+
+  @if (Model != null)
+  {
+    <ul class="nav nav-tabs nav-stacked">
+      @foreach (var item in Model)
+      { 
+        @Html.Partial("_Index_Row", item)
+      }
+    </ul>
+  }
+</div>
+
+
+@Html.Part_Modal("inlinecreatedialog",
+                 content: Html.Partial("_Inline_Create", new Joshua.Models.Menu()),
+                 width: 400, showheader: true, header: "new menu")
+
+@section scripts
+{
+  @Scripts.Render("~/bundles/jqueryval")
+  <script type="text/javascript">
+
+    function newMenu(parent) {
+      $("#inlinecreatedialog").modal({ keyboard: false });
+      CreateNewMenu(parent);
+    }
+
+    function deleteItem(itemid) {
+      ShowModal("Warning", "the selected menu will be deleted", function () {
+        $.get("@Url.Content("~/Admin/Menu/Delete")/" + itemid, null, function (data) {
+            if (Boolean(data)) {
+              $("#item_" + itemid).remove();
+              ShowAlert("The menu has been deleted ");
+            }
+            else {
+              ShowAlert(data);
+            }
+          });
+        });
+      }
+  </script>
+}

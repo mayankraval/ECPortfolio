@@ -1,0 +1,9 @@
+﻿<script type="text/javascript">
+  function DebugWrite(message) {
+    var mbox = $("#debugconsolelog");
+    mbox.append(message + "<br />");
+    mbox.scrollTop(mbox[0].scrollHeight);
+  }
+</script>
+ <div class="row" id="debugconsolelog" style="height: 100px; overflow-y: scroll;">
+ </div>

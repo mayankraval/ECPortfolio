@@ -1,0 +1,38 @@
+<configuration>
+	<appSettings>
+		<add key="joshua:dataprovider" value="DensoDB" />
+		<!-- <add key="joshua:dataprovider" value="EntityFramework" /> -->
+	</appSettings>
+	<connectionStrings>
+		<clear/>
+		<add name="ConnectionString" connectionString="" />
+	</connectionStrings>
+	<system.web>
+		<authentication mode="Forms">
+			<forms loginUrl="/Account/Login" />
+		</authentication>
+		<pages controlRenderingCompatibilityVersion="4.0">
+			<namespaces>
+				<add namespace="System.Web.Optimization" />
+			</namespaces>
+		</pages>
+		<profile>
+			<providers>
+				<clear />
+			</providers>
+		</profile>
+		<membership>
+			<providers>
+				<clear />
+			</providers>
+		</membership>
+		<roleManager>
+			<providers>
+				<clear />
+			</providers>
+		</roleManager>
+	</system.web>
+	<system.webServer>
+	    <modules runAllManagedModulesForAllRequests="true"></modules>
+	</system.webServer>
+</configuration>

@@ -2,6 +2,12 @@
 <%@ Register Src="~/User_Controls/Navbar.ascx" TagName="navbar" TagPrefix="bs3" %>
 <%@ Register Src="~/User_Controls/Contactme.ascx" TagName="contactme" TagPrefix="bs4" %>
 
+<%-- 
+    File : SiteContact.Master
+    Author : Mayank Raval
+    Web Site : http://ecportfolio.azurewebsites.net/
+    Description : Provides master layout for Contact page to demostrate customized user control for contact us --%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head runat="server">
@@ -39,6 +45,7 @@
         
         <div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <%-- following commented out line provides a way to include custome user defined contact us control to your page --%>
                 <%--<bs4:contactme runat="server"></bs4:contactme>--%>
             </asp:ContentPlaceHolder>
         </div>

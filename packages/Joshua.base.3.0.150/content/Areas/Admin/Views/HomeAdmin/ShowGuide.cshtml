@@ -1,0 +1,40 @@
+﻿@{
+  ViewBag.Title = "Index";
+  Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+  var serverpath = Server.MapPath("~/Areas/Admin/Views/AdminDashboard");
+  var contentfiles = Directory.GetFiles(serverpath, "*.cshtml")
+                              .OrderBy(n => n)
+                              .Select(n => System.IO.Path.GetFileNameWithoutExtension(n)).ToArray();
+}
+
+<div class="container ">
+  <div class="row">
+    <div class="span3 bs-docs-sidebar">
+      <ul class="nav nav-list bs-docs-sidenav affix" data-offset-top="200">
+        @foreach (var file in contentfiles)
+        {
+          <li><a href="#@(file)"><i class="icon-chevron-right"></i>@(file)</a></li>
+        }
+      </ul>
+    </div>
+
+    <div class="span9">
+      @foreach (var file in contentfiles)
+      { 
+        <section id="@(file)">
+          @Html.Partial(string.Format("~/Areas/Admin/Views/AdminDashboard/{0}.cshtml", file))
+        </section>
+        <hr />
+      }
+    </div>
+  </div>
+</div>
+
+
+@section Scripts
+{
+  <script type="text/javascript">
+    $('#navbar').affix();
+  </script>
+}

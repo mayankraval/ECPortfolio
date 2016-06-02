@@ -1,5 +1,11 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="WebApplication1.WebForm1" %>
 
+<%-- 
+    File : default.aspx
+    Author : Mayank Raval
+    Web Site : http://ecportfolio.azurewebsites.net/
+    Description : default page which uses Site.Master as master page and provides home page layout and slider etc.. --%>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <%--<bs3:Jumbotron runat="server" ID="Jumbotron" ></bs3:Jumbotron>--%>
     

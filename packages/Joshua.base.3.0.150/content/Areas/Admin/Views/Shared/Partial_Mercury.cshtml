@@ -1,0 +1,27 @@
+﻿<script src="~/Scripts/mercury/javascripts/mercury_loader.js?src=/Scripts/mercury&pack=bundled&visible=true" type="text/javascript"></script>
+<script type="text/javascript">
+  jQuery(function () {
+    $('.browser').tooltip({});
+  });
+  jQuery(window).on('mercury:ready', function () {
+
+    Mercury.PageEditor.prototype.save = function () {
+      $('[data-mercury="full"]').each(function () {
+        var hf = $(this).attr("data-hiddenfield");
+        $("#" + hf).val($(this).html());
+      });
+    };
+
+    Mercury.on('unfocus:regions', function () {
+      Mercury.PageEditor.prototype.save();
+    });
+  });
+
+  function toggleMercury() {
+    if (typeof (Mercury) == 'undefined') {
+      alert("Sorry, but Html Editor isn't supported by your current browser.\n\nBrowsers that support the required HTML5 spec:\n\n  Chrome 10+\n  Firefox 4+\n  Safari 5+\n  Opera 11.64+\n  Mobile Safari (iOS 5+)");
+    } else {
+      Mercury.trigger('toggle:interface');
+    }
+  }
+</script>

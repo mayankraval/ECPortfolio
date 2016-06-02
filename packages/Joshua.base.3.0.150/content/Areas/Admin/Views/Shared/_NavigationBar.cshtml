@@ -1,0 +1,140 @@
+﻿@{
+  Layout = null;
+  var db = DeNSo.Session.New;
+  var containers = db.Get<Joshua.Models.Container>(c => c.ParentId == null && c.Language == UICulture).ToList();
+  var currentcontroller = this.Request.CurrentController().ToLower();
+}
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+    <a class="brand" href="/Admin" style="margin-left: 10px;">@J.Settings["joshua:sitename"] Administration</a>
+    <div class="nav-collapse collapse">
+      <ul class="nav">
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="icon-wrench icon-white"></i>&nbsp;Settings<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-submenu"><a href="#">
+              <i class=" icon-wrench"></i>&nbsp;Site Settings</a>
+              <ul class="dropdown-menu">
+                <li><a href="/admin/Settings"><i class=" icon-pencil"></i>&nbsp;Edit Settings</a></li>
+                <li><a href="/admin/Settings/list"><i class=" icon-list"></i>&nbsp;View Current Settings</a></li>
+                <li class="divider"></li>
+                <li><a href="/admin/contenttype"><i class="icon-wrench"></i>&nbsp;Edit Content Types</a></li>
+                <li class="divider"></li>
+                <li><a href="/admin/HomeAdmin/CheckDBLanguages"><i class=" icon-random"></i>&nbsp;Check Null languages</a></li>
+                <li class="dropdown-submenu">
+                  <a href="#"><i class="icon-random"></i>&nbsp;Align Contents to another language</a>
+                  <ul class="dropdown-menu">
+                    @foreach (var ll in J.Settings.ActiveLanguages)
+                    { 
+                      <li><a href="/admin/HomeAdmin/AlignContentToLanguage/@ll"><i class="icon-flag"></i>&nbsp;@ll</a></li>    
+                    }
+                  </ul>
+                </li>
+                <li class="divider"></li>
+                <li><a href="/admin/HomeAdmin/RebuildDatabaseIndexes"><i class=" icon-asterisk"></i>&nbsp;Rebuild Indexes</a></li>
+                <li class="divider"></li>
+                <li><a href="/admin/Settings/CleanServerCache"><i class=" icon-trash"></i>&nbsp;Clean server Cache</a></li>
+                <li><a href="/admin/Settings/recycle"><i class=" icon-repeat"></i>&nbsp;Recycle current application pool</a></li>
+              </ul>
+            </li>
+            <li class="disabled"><a href="#">
+              <i class=" icon-fire"></i>&nbsp;Plugins</a></li>
+            <li class="disabled"><a href="#">
+              <i class=" icon-plus-sign"></i>&nbsp;Install a plugin</a></li>
+            <li class="divider"></li>
+            <li><a href="/Admin/Users/Index">
+              <i class=" icon-user"></i>&nbsp;Users</a></li>
+            <li><a href="/Admin/Roles/Index">
+              <i class=" icon-globe"></i>&nbsp;Groups</a></li>
+            <li class="divider"></li>
+            <li><a href="@Url.Content("~/Admin/Dashboard")">
+              <i class=" icon-edit"></i>&nbsp;Edit Dashboard</a></li>
+          </ul>
+        </li>
+        <li class="dropdown  @(currentcontroller == "content" ? "active" : "")">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-file icon-white"></i>&nbsp;
+              Contents<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/Admin/Content">All contents</a></li>
+            <li class="divider"></li>
+            @if (containers != null)
+            {
+              foreach (var c in containers.OrderBy(c => c.Description))
+              { 
+              @Html.Partial("~/Areas/Admin/Views/Shared/_NavigationBar_Sub.cshtml", c)
+              }
+            }
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-th-large icon-white"></i>&nbsp;
+              Site Structure<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="@Url.Content("~/Admin/Containers")">
+              <i class=" icon-th-list"></i>&nbsp;
+                Containers</a></li>
+            <li><a href="@Url.Content("~/Admin/Menu")">
+              <i class=" icon-list-alt"></i>&nbsp;
+                Static Menu</a></li>
+            <li class="disabled"><a href="#">
+              <i class="icon-th"></i>&nbsp;
+                Layouts</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+      @foreach (var p in J.Plugins.GetMenuRenderers())
+      { 
+        @p(Html)
+      }
+
+      <ul class="nav pull-right ">
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="icon-flag icon-white"></i>&nbsp;Current Language:&nbsp;@UICulture<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            @foreach (var culture in J.Settings.ActiveLanguages)
+            {
+              var ii = Math.Max(Math.Max(Request.Path.ToLower().IndexOf("/admin"), Request.Path.ToLower().IndexOf("/plugins")), 0);
+              <li><a href="/@(culture)@Request.Path.Substring(ii)" >
+                <i class="icon-flag"></i>&nbsp;@culture</a>
+              </li>
+            }
+          </ul>
+        </li>
+        @if (!Request.IsAuthenticated)
+        {
+          <li>
+            @Html.Part_ModalButton("logindialog", MvcHtmlString.Create("<i class='icon-user icon-white'></i> Log in"), "")
+          </li>
+        }
+        else
+        { 
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-asterisk icon-white"></i>&nbsp;@User.Identity.Name<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="/" target="_blank">
+                <i class="icon-play-circle"></i>&nbsp;Preview</a>
+              </li>
+              <li class="divider"></li>
+              <li><a href="/account/logoff">
+                <i class="icon-off"></i>&nbsp;Log off</a>
+              </li>
+            </ul>
+          </li>
+        }
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</div>
