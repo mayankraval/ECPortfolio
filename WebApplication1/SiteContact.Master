@@ -36,13 +36,13 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-        <form name="contactme" runat="server">
+        
         <div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                <bs4:contactme runat="server"></bs4:contactme>
+                <%--<bs4:contactme runat="server"></bs4:contactme>--%>
             </asp:ContentPlaceHolder>
         </div>
-            </form>
+      
     
     <!-- Footer -->
     <div class="navbar-fixed-bottom">
